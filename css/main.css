@@ -1,0 +1,316 @@
+/*
+    Document   : main
+    Created on : Sep 9, 2013, 1:24:15 AM
+    Author     : Petr Zalyautdinov (Ãâ€”ÃÂ°ÃÂ»Ã‘ÂÃ‘Æ’Ã‘â€šÃÂ´ÃÂ¸ÃÂ½ÃÂ¾ÃÂ² ÃÅ¸Ã‘â€˜Ã‘â€šÃ‘â‚¬) <zalyautdinov.petr@gmail.com>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+@font-face {
+    font-family: Ubuntu; /* Ãâ€œÃÂ°Ã‘â‚¬ÃÂ½ÃÂ¸Ã‘â€šÃ‘Æ’Ã‘â‚¬ÃÂ° Ã‘Ë†Ã‘â‚¬ÃÂ¸Ã‘â€žÃ‘â€šÃÂ° */
+    src: url(../fonts/Ubuntu-L.ttf); /* ÃÅ¸Ã‘Æ’Ã‘â€šÃ‘Å’ ÃÂº Ã‘â€žÃÂ°ÃÂ¹ÃÂ»Ã‘Æ’ Ã‘ÂÃÂ¾ Ã‘Ë†Ã‘â‚¬ÃÂ¸Ã‘â€žÃ‘â€šÃÂ¾ÃÂ¼ */
+    font-weight: normal;
+    font-style: normal;
+}
+
+root {
+    display:block;
+}
+
+.image {
+    width: 100%;
+}
+
+h1,h2,h3,h4,h5{
+    font-weight: normal;
+    margin-bottom: 16px;
+    margin-top: 50px;
+}
+
+.firefox h1,.firefox h2,.firefox h3,.firefox h4,.firefox h5{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p {
+    margin-top: 5px;
+}
+
+body {
+    margin:0;
+    color: #333;
+    overflow: scroll;
+}
+
+body.chrome{
+    font-size: 15px;
+    line-height: 19px;
+    letter-spacing: 0.7px;
+}
+
+.chrome #content strong{
+    letter-spacing: 1.5px;
+}
+
+.header {
+    background:#D5BAE4;
+}
+
+.layout DIV {
+    position:absolute;
+}
+
+.col1 {
+    background:#C7E3E4;
+    width:125px;
+    position:fixed;
+    margin-top:150px;
+    height:100%;
+}
+
+.col2 {
+    background:#E0D2C7;
+    left:125px;
+    right:125px;
+}
+
+.col3 {
+    background:#ECD5DE;
+    width:125px;
+    right:0;
+}
+
+#page {
+    max-width: 1200px;
+    width:100%;
+    margin:0 auto;
+    /* font-weight: normal; */
+}
+
+#top {
+    position:fixed;
+    height:110px;
+    /*font-family:arial, sans-serif;*/
+    width:100%;
+    max-width: 1200px;
+    z-index:100;
+}
+
+#header {
+    max-width:1200px;
+    width:100%;
+    height:110px;
+    line-height:100px;
+    font-size:50px;
+    background-color:#FFF;
+    padding-top:10px;
+    font-family:Arial, Helvetica, sans-serif;
+    letter-spacing: 0;
+}
+
+#content {
+    max-width:950px;
+    width:100%;
+    text-align:justify;
+    padding-top:120px;
+    padding-bottom:120px;
+    margin:0 auto;
+    font-family:Ubuntu, Helvetica, sans-serif;
+}
+
+#content .anchor {
+    top: -120px;
+    position: relative;
+    display: block;
+}
+
+#logo {
+    float:left;
+    padding-top:10px;
+}
+
+#menu {
+    float:right;
+    margin-top:130px;
+    height:100%;
+    position:fixed;
+    width:125px;
+}
+
+#title {
+    height:110px;
+    margin-left:125px;
+    color:#333;
+}
+
+#line {
+    height:5px;
+    position:absolute;
+    top:90px;
+    background-color:#000;
+    width:100%;
+    z-index:1;
+    max-width: 1075px;
+}
+
+#subtitle {
+    background-color:transparent;
+    font-size:20px;
+    right:125px;
+    top:0;
+    position:absolute;
+    z-index:100;
+    padding-top:42px;
+    height:0;
+}
+
+#subtitile-text {
+    background-color:#FFF;
+    border:5px solid #FFF;
+}
+
+.menu-item {
+    background-image:url(../images/arrow-right.png);
+    width:100px;
+    background-repeat:no-repeat;
+    height:45px;
+    line-height:45px;
+    background-size:20px;
+    /*    background-position-y:3px;
+        background-position-x:right;*/
+    background-position: right 3px;
+    font-size:14px;
+    white-space:nowrap;
+    margin:20px 0;
+    font-weight: bold;
+    width:100%;
+}
+
+.menu-item-disabled {
+    width:100px;
+    background-repeat:no-repeat;
+    height:45px;
+    line-height:45px;
+    background-size:20px;
+    /*    background-position-y:3px;
+        background-position-x:right;*/
+    font-size:14px;
+    white-space:nowrap;
+    margin:20px 0;
+    font-weight: bold;
+}
+
+
+.firefox .menu-item, .firefox .menu-item-disabled{
+    font-size:13px;
+}
+
+
+.menu-item a {
+    margin-left:20px;
+    color:#333;
+}
+
+.menu-item-disabled span {
+    margin-left:20px;
+    color:#aaa;
+}
+
+#home {
+    background-image:url(../images/arrow-left.png);
+    width:100px;
+    background-repeat:no-repeat;
+    height:45px;
+    line-height:45px;
+    background-size:20px;
+    /*    background-position-y:3px;
+        background-position-x:left;*/
+    background-position: left 3px;
+    font-size:14px;
+    text-align:right;
+    position:fixed;
+    margin:0;
+    top:150px;
+}
+
+#home span {
+    display: none;
+}
+
+#home.menu-item-disabled {
+    background: transparent;
+}
+
+#lang-select {
+    position:absolute;
+    top:70px;
+    right:0;
+    font-size:12px;
+    line-height:20px;
+    z-index:200;
+}
+
+#header-menu {
+    position:fixed;
+    top:0;
+    width:100%;
+    max-width:1200px;
+    float:right;
+    z-index:150;
+    height:0;
+}
+
+#header-menu .menu-item,#header-menu .menu-item-disabled {
+    position:relative;
+    background-image:none;
+    display:inline-block;
+    float:right;
+    font-size:14px;
+    font-weight:700;
+    width:auto;
+    line-height: 30px;
+    margin: 0;
+}
+
+.layout,#menu div {
+    position:relative;
+}
+
+.menu-item a:visited,#lang-select a:visited,#lang-select a {
+    color:#333;
+}
+
+#lang-select span {
+    color:#aaa;
+}
+
+pre {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.to-contents {
+    float: left;
+    margin-right: 15px;
+    color: #aaa;
+    text-decoration: none;
+}
+
+.to-contents:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #aaa;
+    text-decoration: underline;
+}
+
+a.external:before{
+    content: url(../images/link.png);
+    margin-right: 3px;
+}

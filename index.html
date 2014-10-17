@@ -1,34 +1,26 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <title>WebChunks</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <style type="text/css">
-            .image {
-                width: 200px;
-                overflow: hidden;
-            }
-            .img{
-                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACqUlEQVQ4jaVUTUhUURQ+995z730zzoxTIpoQyQiJWgk2mRj9YOBCtCBXLlyFUFRCi1ZFboJEo41EKvYD1SZ/IIMQoV8haBFihWb2w0CKhulY8+bNvHn33RYDhTWU1Vme8318HL7zHTL1cgL+tejvx2/m4t0j85Fl8ndkrWFgbK6jfyY/L/vy0POMGMzYjZpO58C0lEbbkVpDiq4rgwAVayKPf4h1Db+v3bGpqjykHMd0HNtc/LOycvWNh/PPZr42123JDWbFLCu9q2Muuq4GACCQ7hBCVpHno3bHUCTok037Q5zTWDxJKUmDnXi0qvEUFVlU+JkMrMsOtByqbNgVImmrnkxGr47O7iwOFhYEGCJjjFJGKU0raK211koppRwnlbKTyd6bw/e6DmMi5faMfJx4t1S9OeDzkpiZRO4i54xpShmhhBCitXZdVynl2E7Kti0rsRSNAgC2dr9i6ktpvjdp20CIEMAVQUVREJbWBq0BtAuJhFpeMecWFiORWdexAQC1Y5mxWMSN+3x+r8+f5dXSIJwTtIFSVwNRrk45bjxhm1YyYVkx0yEUtbIBAC8dD/cMT94dmwz6Ev5A0uvze7Mcw6OkFJJzRKSUABDGuEeC1pCybeQ8rUwFZycat55r2e2mLNM0KUOGyBEl50IIKYVhSMMwPIY0DCml4EJQRr0e/sOqyrKCvjMH2q/df/12qmRbmDGGiIJzITgi6zhZT5hB0EO4QZhnfW7OvsqSVT4H/Z721vo7DyZ6+0fKwnv8hUWITEjOOQKTLx7f/vXCfg7GwZry7rNNn6YfjT8dJaARUQpBKM94nhlStXFDTt/5Y+FCHLzeufJ5AZEDYRnJmVOFjB1tbqjeXtp28UJxTV1eUWityt+rvLToVtfpEF3eW1GaEUD+5w19A+puDRY3KoVLAAAAAElFTkSuQmCC');
-                background-color: transparent;
-                background-position: 180px;
-                background-repeat: no-repeat;
-            }
-        </style>
+        <script type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
-        <div>WebChunks</div>
-        <div>
-            <div class="image">
-                <select style="width: 500px" class="img">
-                    <option>test</option>
-                    <option>test</option>
-                </select>
-            </div>
-        </div>
+        <script type="text/javascript">
+            var lng = getCookie("lang");
+            if (!lng && lng !== '') {
+                lng = navigator.browserLanguage || navigator.language || navigator.userLanguage;
+                lng = lng.toLowerCase().substring(0, 2);
+                if (!lng || (lng !== 'en' && lng !== 'ru')) {
+                    lng = "en";
+                }
+                setCookie("lang", lng);
+            }
+            window.location.href = "" + lng + "/index.html";
+        </script>
+        <h1><a href="en">English version</a></h1>
+        <h1><a href="ru">Русская версия</a></h1>
+        <hr/>
+        <a href="https://plus.google.com/110873089581999568722" rel="publisher">Google+</a>
     </body>
 </html>

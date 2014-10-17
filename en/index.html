@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebChunks</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+        <script type="text/javascript" src="../js/main.js"></script>
+    </head>
+    <body>
+        <div id="page">
+            <div id="top" class="header">
+                <a href="index.html"><img id="logo" width="100" alt="webchunks" src="../images/logo_150x172.png"/></a>
+                <div id="header">
+                    <div id="title">WebChunks
+                        <div id="line"></div>
+                    </div>
+                    <div id="lang-select">
+                        <a href="../ru/index.html" onclick="setCookie('lang', 'ru');">Рус</a>|<span>Eng</span>
+                    </div>
+                    <div id="header-menu">
+                        <div  class="menu-item"><a href="demo.html">Demo</a></div><div  class="menu-item"><a href="links.html">Links</a></div><div  class="menu-item"><a href="examples.html">Examples</a></div>
+                    </div>
+                    <div id="subtitle"><span id="subtitile-text">Java Web Framework</span></div>
+                </div>
+            </div>
+            <div class="layout">
+                <div class="col1">
+                    <div id="home" class="menu-item-disabled"><span>Home</span></div>
+                </div>
+                <div  class="col2">
+                    <div id="content">
+                        
+<p><strong>Welcome to the website of the project WebChunks!</strong>
+<p>WebChunks is an experiment to create a simple and effective java web framework. The basic idea of WebChunks is hide processing of user interaction with the interface and sending/receiving of http-requests, providing instead a convenient mechanism of events. This as well as automatic monitoring of changes in the interface and flexible components system allow the developer to concentrate on solving the basic task and  forget about placing and updating the related elements on the page.
+<p>Below is a simplified diagram of processing of the user input in the text field <strong>Field&nbsp;#1</strong> by application. Values ​​in the <strong>Filed&nbsp;#2</strong> and <strong>Filed&nbsp;#3</strong> automatically synchronized with it through the listeners.
+<p><img src="../images/flow1.png" class="image" alt="flow"/><center><a href="../images/flow1.png">Fig. 1</a></center>
+<p>In this case, the developer only cares about what components in what sequence add to the form. And which listeners should be added if needed. WebChunks takes care about everything else. At the same time, rejection of the traditional request-response paradigm allowed make the internal structure of framework simple enough. WebChunks divides requests into three types: a request to the resource, page request and the event from the component. The main goal of the framework is only routing the event to the appropriate handler. Of course, this requires one more class when you create a component, but on the other hand, this approach increases the flexibility and the implementation of this handler is usually fairly trivial.
+<p>Read more about the basic WebChunks qualities.
+<p><a class="anchor" name="contents"/><ol><li><a href="#1">Simplicity </a></li><li><a href="#2">Lightweight </a></li><li><a href="#3">Modularity </a></li><li><a href="#4">Customizability </a></li><li><a href="#5">Testability </a></li></ol> 
+<p>
+<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="1"></a>Simplicity </h2>
+<p>First of all, the simplicity of the internal structure. WebChunks does not contain complex internal logic, its task is to receive ajax-requests and transfer them in java preserving the order. This has greatly simplified the code of the framework that firstly reduces the number of potential errors, and secondly makes them easier to find when they occur. The consequence of this is the ease of use. Programmer does not take much time to read the documentation of framework and delve into the intricacies of its work before to start developing applications using WebChunks. On the contrary, components and the event model should maximize shield the developer from unnecessary work.
+<p>The desire for simplicity has led to rejection of templating of pages. Templates works at the component level, it saves the developer time, because it's not necessary for him to put each single element on right place of page, and allows him to delegate this duty to a professional html-coder or use a ready set of styles for the uniform displaying components. In addition to reducing the work of the developer, it simplifies the process of creating skins.
+<p>Certainly for what would the ingredients were easy to use, they should be well-written, it is in a certain sense, imposes greater responsibility on the person developing the components. On the other hand, once developed component allows you to reuse it unlimitedly. In turn, the contracts of javascript part of WebChunks maximum isolates the components from each other and minimizes the possibility of the appearance of side-effects, when ordering or both use of several components can affect its displaying or behavior.
+<p>As an illustration to the paragraph below is down by the number of lines of code in three main modules: core, simpleui and richui. 
+<p><pre>
+$ ./cloc-1.62.pl ./webchunks/webchunks.core/
+     108 text files.
+     104 unique files.                                          
+       4 files ignored.
+
+http://cloc.sourceforge.net v 1.62  T=0.91 s (109.6 files/s, 18366.1 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Javascript                       3           1350           1339           6738
+Java                            91            748           2901           3361
+XML                              4              5             20            139
+Maven                            1             10             14            126
+CSS                              1              2              7              5
+-------------------------------------------------------------------------------
+SUM:                           100           2115           4281          10369
+-------------------------------------------------------------------------------
+$ ./cloc-1.62.pl ./webchunks/webchunks.simpleui/
+      76 text files.
+      65 unique files.                              
+       2 files ignored.
+
+http://cloc.sourceforge.net v 1.62  T=0.44 s (142.3 files/s, 9642.7 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Java                            50            455           1116           1788
+Javascript                      10             39            313            403
+Maven                            1              9             14            113
+XML                              1              0              0              6
+CSS                              1              2              7              3
+-------------------------------------------------------------------------------
+SUM:                            63            505           1450           2313
+-------------------------------------------------------------------------------
+$ ./cloc-1.62.pl ./webchunks/webchunks.richui/
+      80 text files.
+      76 unique files.                              
+       6 files ignored.
+
+http://cloc.sourceforge.net v 1.62  T=0.53 s (131.2 files/s, 9111.3 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Java                            57            566           1215           2210
+Javascript                       7             27            205            361
+CSS                              4             33             68             81
+XML                              1              0              0             63
+Maven                            1              0              0             31
+-------------------------------------------------------------------------------
+SUM:                            70            626           1488           2746
+-------------------------------------------------------------------------------
+</pre>
+<p>
+<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="2"></a>Lightweight </h2>
+<p>Naturally, we can not say that the framework which all logic is placed on the server side, does not load the server. However WebChunks created with an eye on it to minimize this loading. Of course, the main intention was to reduce the load on the processor, even if achieved at the expense of slightly more memory usage. Although the results of the preliminary load tests while consuming only 4 GB of RAM and up to 4 cores intel core i7 achieved average page load time with 1000 elements per second with simultaneous operation of 200 users. At the same time there was a possibility of optimization, such as the return of resources through a regular web-server, such as apache or nginx, as well as the union and the minimization javascript files and styles. It is a controversial topic, but it is obvious that we need pay for ease of development.
+<p>
+<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="3"></a>Modularity </h2>
+<p>As mentioned above, WebChunks includes three basic modules: <strong>webchunks.core</strong> which include the main part, the basic interfaces and abstraction, <strong>webchunks.simpleui</strong>, it is the simplest implementation of the majority of abstractions and a set of simple components and <strong>webchunks.richui</strong> - additional set of components built on simpleui. 
+<p>Thus, you can create not only libraries which extend the standard set of components but also modules which can replace the basic functionality.
+<p>
+<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="4"></a>Customizability </h2>
+<p>One of the most important rules of WebChunks is "not be a black box." The internal structure of the framework was refactored several times for separating the functionality of the basic components for a comfortable level of abstraction. This means that if a developer might need to change the behavior of one of the elements of the framework, then that is enough to create an derived class with a couple of overloaded methods, instead of writing an alternative interface implementation "from scratch." Many examples of this approach can be found right in the framework. It greatly simplifies the development of due to reusability of code.
+<p>
+<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="5"></a>Testability </h2>
+<p>It is a very important quality. But most web frameworks deprived of it, because its are too tied to the execution environment of web servers. This leads to the fact that testing is required deploying the entire application. WebChunks application can be executed outside the servlet container, and therefore web page can be checked with unit tests at the compile-time. So single pages can be tested as well as whole application or components. For example, you can create a component instance and using the appropriate renderer, get it html-code, which is compared with the reference one. Or, you can drown out the loading / saving of the data for page, and then in the unit-test to send event into application and check changes in data at the end of test.
+<p>Moreover, when you create a page, you can render html code of page and associated resources to a local directory and view the result without having to run a web server. More information about this will be discussed in the examples.
+<p>
+                    </div>
+                </div>
+                <div class="col3">
+                    <div id="menu">
+                        <div  class="menu-item"><a href="demo.html">Demo</a></div><div  class="menu-item"><a href="links.html">Links</a></div><div  class="menu-item"><a href="examples.html">Examples</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+            var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+            if (isChrome) {
+                document.getElementsByTagName('body')[0].setAttribute("class", "chrome");
+            } else if (isFirefox){
+                document.getElementsByTagName('body')[0].setAttribute("class", "firefox");
+            }
+        </script>
+    </body>
+</html>
