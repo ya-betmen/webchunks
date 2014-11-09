@@ -1,13 +1,13 @@
 /*
     Document   : main
     Created on : Sep 9, 2013, 1:24:15 AM
-    Author     : Petr Zalyautdinov (Ãâ€”ÃÂ°ÃÂ»Ã‘ÂÃ‘Æ’Ã‘â€šÃÂ´ÃÂ¸ÃÂ½ÃÂ¾ÃÂ² ÃÅ¸Ã‘â€˜Ã‘â€šÃ‘â‚¬) <zalyautdinov.petr@gmail.com>
+    Author     : Petr Zalyautdinov (ÃƒÆ’Ã‚ÂÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬ÂÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â°ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â»ÃƒÆ’Ã¢â‚¬ËœÃƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬ËœÃƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â´ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¸ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â½ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¾ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â² ÃƒÆ’Ã‚ÂÃƒâ€¦Ã‚Â¸ÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â€šÂ¬Ã‹Å“ÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬) <zalyautdinov.petr@gmail.com>
     Description:
         Purpose of the stylesheet follows.
 */
 @font-face {
-    font-family: Ubuntu; /* Ãâ€œÃÂ°Ã‘â‚¬ÃÂ½ÃÂ¸Ã‘â€šÃ‘Æ’Ã‘â‚¬ÃÂ° Ã‘Ë†Ã‘â‚¬ÃÂ¸Ã‘â€žÃ‘â€šÃÂ° */
-    src: url(../fonts/Ubuntu-L.ttf); /* ÃÅ¸Ã‘Æ’Ã‘â€šÃ‘Å’ ÃÂº Ã‘â€žÃÂ°ÃÂ¹ÃÂ»Ã‘Æ’ Ã‘ÂÃÂ¾ Ã‘Ë†Ã‘â‚¬ÃÂ¸Ã‘â€žÃ‘â€šÃÂ¾ÃÂ¼ */
+    font-family: Ubuntu; /*  */
+    src: url(../fonts/Ubuntu-L.ttf); /*  */
     font-weight: normal;
     font-style: normal;
 }
@@ -55,7 +55,7 @@ body.chrome{
     background:#D5BAE4;
 }
 
-.layout DIV {
+.layout > div {
     position:absolute;
 }
 
@@ -68,7 +68,7 @@ body.chrome{
 }
 
 .col2 {
-    background:#E0D2C7;
+    /*background:#E0D2C7;*/
     left:125px;
     right:125px;
 }
@@ -275,6 +275,10 @@ body.chrome{
     position:relative;
 }
 
+div {
+    background-color: transparent;
+}
+
 .menu-item a:visited,#lang-select a:visited,#lang-select a {
     color:#333;
 }
@@ -312,5 +316,16 @@ a:hover {
 
 a.external:before{
     content: url(../images/link.png);
-    margin-right: 3px;
+    margin-right: 3px;classes
+}
+
+div.xml, div.java, div.pre {
+    overflow: auto;
+    width: 100%;
+    border: 1px #aaa dotted;
+    padding: 5px;
+}
+
+img.left {
+    border: 1px #aaa dotted;
 }

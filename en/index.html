@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="../css/main.css"/>
         <script type="text/javascript" src="../js/main.js"></script>
+        <link rel="icon" href="../images/favicon.png" type="image/png">
     </head>
     <body>
         <div id="page">
@@ -18,7 +19,7 @@
                         <a href="../ru/index.html" onclick="setCookie('lang', 'ru');">Рус</a>|<span>Eng</span>
                     </div>
                     <div id="header-menu">
-                        <div  class="menu-item"><a href="demo.html">Demo</a></div><div  class="menu-item"><a href="links.html">Links</a></div><div  class="menu-item"><a href="examples.html">Examples</a></div>
+                        <div  class="menu-item"><a href="links.html">Links</a></div><div  class="menu-item"><a href="examples.html">Examples</a></div><div  class="menu-item"><a href="demo.html">Demo</a></div>
                     </div>
                     <div id="subtitle"><span id="subtitile-text">Java Web Framework</span></div>
                 </div>
@@ -43,7 +44,7 @@
 <p>The desire for simplicity has led to rejection of templating of pages. Templates works at the component level, it saves the developer time, because it's not necessary for him to put each single element on right place of page, and allows him to delegate this duty to a professional html-coder or use a ready set of styles for the uniform displaying components. In addition to reducing the work of the developer, it simplifies the process of creating skins.
 <p>Certainly for what would the ingredients were easy to use, they should be well-written, it is in a certain sense, imposes greater responsibility on the person developing the components. On the other hand, once developed component allows you to reuse it unlimitedly. In turn, the contracts of javascript part of WebChunks maximum isolates the components from each other and minimizes the possibility of the appearance of side-effects, when ordering or both use of several components can affect its displaying or behavior.
 <p>As an illustration to the paragraph below is down by the number of lines of code in three main modules: core, simpleui and richui. 
-<p><pre>
+<p><div class='pre'><pre>
 $ ./cloc-1.62.pl ./webchunks/webchunks.core/
      108 text files.
      104 unique files.                                          
@@ -95,7 +96,7 @@ Maven                            1              0              0             31
 -------------------------------------------------------------------------------
 SUM:                            70            626           1488           2746
 -------------------------------------------------------------------------------
-</pre>
+</pre></div>
 <p>
 <p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="2"></a>Lightweight </h2>
 <p>Naturally, we can not say that the framework which all logic is placed on the server side, does not load the server. However WebChunks created with an eye on it to minimize this loading. Of course, the main intention was to reduce the load on the processor, even if achieved at the expense of slightly more memory usage. Although the results of the preliminary load tests while consuming only 4 GB of RAM and up to 4 cores intel core i7 achieved average page load time with 1000 elements per second with simultaneous operation of 200 users. At the same time there was a possibility of optimization, such as the return of resources through a regular web-server, such as apache or nginx, as well as the union and the minimization javascript files and styles. It is a controversial topic, but it is obvious that we need pay for ease of development.
@@ -115,7 +116,7 @@ SUM:                            70            626           1488           2746
                 </div>
                 <div class="col3">
                     <div id="menu">
-                        <div  class="menu-item"><a href="demo.html">Demo</a></div><div  class="menu-item"><a href="links.html">Links</a></div><div  class="menu-item"><a href="examples.html">Examples</a></div>
+                        <div  class="menu-item"><a href="links.html">Links</a></div><div  class="menu-item"><a href="examples.html">Examples</a></div><div  class="menu-item"><a href="demo.html">Demo</a></div>
                     </div>
                 </div>
             </div>

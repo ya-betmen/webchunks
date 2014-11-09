@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="../css/main.css"/>
         <script type="text/javascript" src="../js/main.js"></script>
+        <link rel="icon" href="../images/favicon.png" type="image/png">
     </head>
     <body>
         <div id="page">
@@ -18,7 +19,7 @@
                         <a href="../ru/examples.html" onclick="setCookie('lang', 'ru');">Рус</a>|<span>Eng</span>
                     </div>
                     <div id="header-menu">
-                        <div  class="menu-item"><a href="demo.html">Demo</a></div><div  class="menu-item"><a href="links.html">Links</a></div><div  class="menu-item-disabled"><span>Examples</span></div>
+                        <div  class="menu-item"><a href="links.html">Links</a></div><div  class="menu-item-disabled"><span>Examples</span></div><div  class="menu-item"><a href="demo.html">Demo</a></div>
                     </div>
                     <div id="subtitle"><span id="subtitile-text">Examples</span></div>
                 </div>
@@ -31,11 +32,182 @@
                     <div id="content">
                         <strong>Unfortunately this section of the site is under construction</strong>
 <p>
+<p><a class="anchor" name="contents"/><ol><li><a href="#1">Hello, World!</a></li></ol>
+<p>
+<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="1"></a>Hello, World!</h2>
+<p>Traditional "Hello, World" application. This is example of minimal WebChunks application.
+<p>
+<p>Let's create new web-application and add needed libraries. If you add libraries manually then you need <strong>webchunks.core</strong>, <strong>webchunks.simpleui</strong>, <strong>google guava</strong>, <strong>apache common</strong> and <strong>jtidy</strong>.
+<p><img class="left" src="../images/examples/1/libraries.png" class="image" alt="libraries"/>
+<p>If you use maven then you can include only webchunks.simpleui and all needed dependencies will be downloaded automatically.
+<p>
+<p>Let's create needed classes: <a href="../files/examples/1/HelloWorldServlet.java">HelloWorldServlet.java</a> - main servlet, <a href="../files/examples/1/HelloWorldApplication.java">HelloWorldApplication.java</a> - application, <a href="../files/examples/1/HelloWorldPage.java">HelloWorldPage.java</a> - application main page.
+<p><img class="left" src="../images/examples/1/classes.png" class="image" alt="classes"/>
+<p><strong>HelloWorldServlet.java</strong><div class='java'>
+<pre><span style="color:#800000; font-weight:bold; ">package</span><span style="color:#004a43; "> demo</span><span style="color:#800080; ">;</span>
+
+
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> java</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">util</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Properties</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">servlet</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WebChunksServlet</span><span style="color:#800080; ">;</span>
+
+<span style="color:#3f5fbf; ">/**</span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">@author</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">Petr Zalyautdinov (Заляутдинов Пётр) &lt;zalyautdinov.petr@gmail.com<script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
+/* ]]> */
+</script>&gt;</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;*/</span>
+<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> HelloWorldServlet <span style="color:#800000; font-weight:bold; ">extends</span> WebChunksServlet&lt;HelloWorldApplication&gt; <span style="color:#800080; ">{</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">protected</span> HelloWorldApplication createApplication<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">Properties</span> prprts<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">new</span> HelloWorldApplication<span style="color:#808030; ">(</span>prprts<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+<span style="color:#800080; ">}</span>
+</pre>
+</div>
+<p>
+<p><strong>HelloWorldApplication.java</strong><div class='java'>
+<pre><span style="color:#800000; font-weight:bold; ">package</span><span style="color:#004a43; "> demo</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> java</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">util</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Collections</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> java</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">util</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Map</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> java</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">util</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Properties</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">application</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Application</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">application</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Request</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">component</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Page</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">update</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">UpdateManager</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">resource</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">ResourceManager</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">resource</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">SimpleResourceManager</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">update</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">SimpleUpdateManager</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">ui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">SimpleUI</span><span style="color:#800080; ">;</span>
+
+<span style="color:#3f5fbf; ">/**</span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">@author</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">Petr Zalyautdinov (Заляутдинов Пётр) &lt;zalyautdinov.petr@gmail.com<script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
+/* ]]> */
+</script>&gt;</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;*/</span>
+<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> HelloWorldApplication <span style="color:#800000; font-weight:bold; ">extends</span> Application&lt;SimpleUI&gt; <span style="color:#800080; ">{</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> HelloWorldApplication<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">Properties</span> config<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>config<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">protected</span> UpdateManager initUpdateManager<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">new</span> SimpleUpdateManager<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">protected</span> ResourceManager initResourceManager<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">new</span> SimpleResourceManager<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getApplicationName<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"HelloWorldApp"</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">int</span> getSessionDuration<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#008c00; ">100</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">protected</span> Page createMainPage<span style="color:#808030; ">(</span>Request rqst<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">new</span> HelloWorldPage<span style="color:#808030; ">(</span>rqst<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">protected</span> Map<span style="color:#808030; ">&lt;</span><span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">Class</span><span style="color:#808030; ">&lt;</span><span style="color:#808030; ">?</span> <span style="color:#800000; font-weight:bold; ">extends</span> Page<span style="color:#808030; ">&gt;</span><span style="color:#808030; ">&gt;</span> initPages<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">String</span> string<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> Collections<span style="color:#808030; ">.</span>EMPTY_MAP<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">protected</span> SimpleUI createUI<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">new</span> SimpleUI<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+<span style="color:#800080; ">}</span>
+</pre>
+</div>
+<p>
+<p><strong>HelloWorldPage.java</strong><div class='java'>
+<pre><span style="color:#800000; font-weight:bold; ">package</span><span style="color:#004a43; "> demo</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">application</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Request</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">component</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">ContainerMutable</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcLabel</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcPage</span><span style="color:#800080; ">;</span>
+
+<span style="color:#3f5fbf; ">/**</span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">@author</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">Petr Zalyautdinov (Заляутдинов Пётр) &lt;zalyautdinov.petr@gmail.com<script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
+/* ]]> */
+</script>&gt;</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;*/</span>
+<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> HelloWorldPage <span style="color:#800000; font-weight:bold; ">extends</span> WcPage <span style="color:#800080; ">{</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> HelloWorldPage<span style="color:#808030; ">(</span>Request initData<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>initData<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> init<span style="color:#808030; ">(</span>ContainerMutable cm<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        addChild<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">new</span> WcLabel<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"hwLabel"</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">"Hello, World"</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getTitle<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"Hello World Page"</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+<span style="color:#800080; ">}</span>
+</pre>
+</div>
+<p>
+<p>Let's configure servlet for all requests. To do this, change the web.xml file as follows:
+<p><strong>web.xml</strong><div class='xml'>
+<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+<span style='color:#004a43; '>&lt;?</span><span style='color:#800000; font-weight:bold; '>xml</span><span style='color:#004a43; '> </span><span style='color:#074726; '>version</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#7d0045; '>1.0</span><span style='color:#0000e6; '>"</span><span style='color:#004a43; '> </span><span style='color:#074726; '>encoding</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>UTF-8</span><span style='color:#0000e6; '>"</span><span style='color:#004a43; '>?></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>web-app</span> <span style='color:#274796; '>version</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>3.0</span><span style='color:#0000e6; '>"</span>
+         <span style='color:#666616; '>xmlns</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#666616; '>http</span><span style='color:#800080; '>:</span><span style='color:#800000; font-weight:bold; '>//</span><span style='color:#5555dd; '>java.sun.com</span><span style='color:#40015a; '>/xml/ns/javaee</span><span style='color:#0000e6; '>"</span>
+         <span style='color:#666616; '>xmlns</span><span style='color:#800080; '>:</span><span style='color:#074726; '>xsi</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#666616; '>http</span><span style='color:#800080; '>:</span><span style='color:#800000; font-weight:bold; '>//</span><span style='color:#5555dd; '>www.w3.org</span><span style='color:#40015a; '>/2001/XMLSchema-instance</span><span style='color:#0000e6; '>"</span>
+         <span style='color:#666616; '>xsi</span><span style='color:#800080; '>:</span><span style='color:#074726; '>schemaLocation</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#666616; '>http</span><span style='color:#800080; '>:</span><span style='color:#800000; font-weight:bold; '>//</span><span style='color:#5555dd; '>java.sun.com</span><span style='color:#40015a; '>/xml/ns/javaee</span><span style='color:#0000e6; '> </span><span style='color:#666616; '>http</span><span style='color:#800080; '>:</span><span style='color:#800000; font-weight:bold; '>//</span><span style='color:#5555dd; '>java.sun.com</span><span style='color:#40015a; '>/xml/ns/javaee/web-app_3_0.xsd</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>HelloWorldServlet<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-class</span><span style='color:#a65700; '>></span>demo.HelloWorldServlet<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-class</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-mapping</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>HelloWorldServlet<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>url-pattern</span><span style='color:#a65700; '>></span>/*<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>url-pattern</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-mapping</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>session-config</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>session-timeout</span><span style='color:#a65700; '>></span>
+            30
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>session-timeout</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>session-config</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>web-app</span><span style='color:#a65700; '>></span>
+</pre>
+</div>
+<p>
+<p>Let's build, deploy and look at the result:
+<p><img class="left" src="../images/examples/1/app.png" class="image" alt="app"/>
+<p>
                     </div>
                 </div>
                 <div class="col3">
                     <div id="menu">
-                        <div  class="menu-item"><a href="demo.html">Demo</a></div><div  class="menu-item"><a href="links.html">Links</a></div><div  class="menu-item-disabled"><span>Examples</span></div>
+                        <div  class="menu-item"><a href="links.html">Links</a></div><div  class="menu-item-disabled"><span>Examples</span></div><div  class="menu-item"><a href="demo.html">Demo</a></div>
                     </div>
                 </div>
             </div>
