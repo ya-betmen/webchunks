@@ -32,7 +32,7 @@
                     <div id="content">
                         <strong>К сожалению данный раздел сайта находится в разработке</strong>
 <p>
-<p><a class="anchor" name="contents"/><ol><li><a href="#1">Привет, Мир!</a></li></ol>
+<p><a class="anchor" name="contents"/><ol><li><a href="#1">Привет, Мир!</a></li><li><a href="#2">Слушатели.</a></li></ol>
 <p>
 <p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="1"></a>Привет, Мир!</h2>
 <p>Традиционный "Hello, World". В примере рассматривается минимальное приложение, использующее WebChunks.
@@ -202,6 +202,62 @@
 <p>
 <p>Собираем, запускаем и смотрим на результат:
 <p><img class="left" src="../images/examples/1/app.png" class="image" alt="app"/>
+<p>
+<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="2"></a>Слушатели.</h2>
+<p>В этом примере рассматривается работа со слушателями.
+<p>Слегка изменим код класса HelloWorldPage из предыдущего примера.
+<p><strong>HelloWorldPage.java</strong><div class='java'>
+<pre><span style="color:#800000; font-weight:bold; ">package</span><span style="color:#004a43; "> demo</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">application</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Request</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">event</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">EventValueChange</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">component</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">ContainerMutable</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">listener</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">ValueListener</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcInput</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcLabel</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcPage</span><span style="color:#800080; ">;</span>
+
+<span style="color:#3f5fbf; ">/**</span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">@author</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">Petr Zalyautdinov (Заляутдинов Пётр) &lt;zalyautdinov.petr@gmail.com<script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
+/* ]]> */
+</script>&gt;</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;*/</span>
+<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> HelloWorldPage <span style="color:#800000; font-weight:bold; ">extends</span> WcPage <span style="color:#800080; ">{</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">final</span> WcInput nameInput <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">final</span> WcLabel helloLabel <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> WcLabel<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> HelloWorldPage<span style="color:#808030; ">(</span>Request initData<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>initData<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> init<span style="color:#808030; ">(</span>ContainerMutable cm<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        addChild<span style="color:#808030; ">(</span>nameInput<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        addChild<span style="color:#808030; ">(</span>helloLabel<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        nameInput<span style="color:#808030; ">.</span>addListener<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">new</span> ValueListener<span style="color:#808030; ">&lt;</span><span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">&gt;</span><span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+
+            <span style="color:#808030; ">@</span>Override
+            <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> valueChanged<span style="color:#808030; ">(</span>EventValueChange<span style="color:#808030; ">&lt;</span><span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">&gt;</span> evc<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                helloLabel<span style="color:#808030; ">.</span>setText<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"Hello, "</span> <span style="color:#808030; ">+</span> nameInput<span style="color:#808030; ">.</span>getValue<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            <span style="color:#800080; ">}</span>
+        <span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        nameInput<span style="color:#808030; ">.</span>setValue<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"World"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getTitle<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"Hello World Page"</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+<span style="color:#800080; ">}</span>
+</pre>
+</div>
+<p>Теперь текст надписи будет автоматически синхронизироваться с полем ввода:
+<p><img class="left" src="../images/examples/2/app.png" class="image" alt="app"/>
 <p>
                     </div>
                 </div>
