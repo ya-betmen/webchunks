@@ -315,7 +315,13 @@ a:hover {
 }
 
 a.external:before{
-    content: url(../images/link.png);
+    content: url(../images/link-external.png);
+    margin-right: 3px;classes
+}
+
+
+a.download:before{
+    content: url(../images/link-download.png);
     margin-right: 3px;classes
 }
 

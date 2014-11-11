@@ -6,6 +6,14 @@
         <link rel="stylesheet" type="text/css" href="../css/main.css"/>
         <script type="text/javascript" src="../js/main.js"></script>
         <link rel="icon" href="../images/favicon.png" type="image/png">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-56624196-1', 'auto');
+            ga('send', 'pageview');
+        </script>
     </head>
     <body>
         <div id="page">
@@ -32,7 +40,7 @@
                     <div id="content">
                         <strong>К сожалению данный раздел сайта находится в разработке</strong>
 <p>
-<p><a class="anchor" name="contents"/><ol><li><a href="#1">Привет, Мир!</a></li><li><a href="#2">Слушатели.</a></li></ol>
+<p><a class="anchor" name="contents"/><ol><li><a href="#1">Привет, Мир!</a></li><li><a href="#2">Слушатели</a></li><li><a href="#3">Модели</a></li></ol>
 <p>
 <p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="1"></a>Привет, Мир!</h2>
 <p>Традиционный "Hello, World". В примере рассматривается минимальное приложение, использующее WebChunks.
@@ -41,9 +49,9 @@
 <p><img class="left" src="../images/examples/1/libraries.png" class="image" alt="libraries"/>
 <p>Если использовать maven, то достаточно подключить только webchunks.simpleui, остальные зависимости будут загружены автоматически.
 <p>
-<p>Создадим необходимые классы: <a href="../files/examples/1/HelloWorldServlet.java">HelloWorldServlet.java</a> - сервлет, запускающий приложение, <a href="../files/examples/1/HelloWorldApplication.java">HelloWorldApplication.java</a> - само приложение, <a href="../files/examples/1/HelloWorldPage.java">HelloWorldPage.java</a> - класс главной страницы.
+<p>Создадим необходимые классы: WcDemoServlet.java - сервлет, запускающий приложение, WcDemoApplication.java - само приложение, WcDemoPage.java - класс главной страницы.
 <p><img class="left" src="../images/examples/1/classes.png" class="image" alt="classes"/>
-<p><strong>HelloWorldServlet.java</strong><div class='java'>
+<p><strong>WcDemoServlet.java</strong><div class='java'>
 <pre><span style="color:#800000; font-weight:bold; ">package</span><span style="color:#004a43; "> demo</span><span style="color:#800080; ">;</span>
 
 
@@ -59,18 +67,18 @@
 /* ]]> */
 </script>&gt;</span><span style="color:#3f5fbf; "></span>
 <span style="color:#3f5fbf; ">&nbsp;*/</span>
-<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> HelloWorldServlet <span style="color:#800000; font-weight:bold; ">extends</span> WebChunksServlet&lt;HelloWorldApplication&gt; <span style="color:#800080; ">{</span>
+<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> WcDemoServlet <span style="color:#800000; font-weight:bold; ">extends</span> WebChunksServlet&lt;WcDemoApplication&gt; <span style="color:#800080; ">{</span>
 
     <span style="color:#808030; ">@</span>Override
-    <span style="color:#800000; font-weight:bold; ">protected</span> HelloWorldApplication createApplication<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">Properties</span> prprts<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
-        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">new</span> HelloWorldApplication<span style="color:#808030; ">(</span>prprts<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">protected</span> WcDemoApplication createApplication<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">Properties</span> prprts<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">new</span> WcDemoApplication<span style="color:#808030; ">(</span>prprts<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
     <span style="color:#800080; ">}</span>
 
 <span style="color:#800080; ">}</span>
 </pre>
 </div>
 <p>
-<p><strong>HelloWorldApplication.java</strong><div class='java'>
+<p><strong>WcDemoApplication.java</strong><div class='java'>
 <pre><span style="color:#800000; font-weight:bold; ">package</span><span style="color:#004a43; "> demo</span><span style="color:#800080; ">;</span>
 
 <span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> java</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">util</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Collections</span><span style="color:#800080; ">;</span>
@@ -94,9 +102,9 @@
 /* ]]> */
 </script>&gt;</span><span style="color:#3f5fbf; "></span>
 <span style="color:#3f5fbf; ">&nbsp;*/</span>
-<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> HelloWorldApplication <span style="color:#800000; font-weight:bold; ">extends</span> Application&lt;SimpleUI&gt; <span style="color:#800080; ">{</span>
+<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> WcDemoApplication <span style="color:#800000; font-weight:bold; ">extends</span> Application&lt;SimpleUI&gt; <span style="color:#800080; ">{</span>
 
-    <span style="color:#800000; font-weight:bold; ">public</span> HelloWorldApplication<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">Properties</span> config<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">public</span> WcDemoApplication<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">Properties</span> config<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
         <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>config<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
     <span style="color:#800080; ">}</span>
 
@@ -122,7 +130,7 @@
 
     <span style="color:#808030; ">@</span>Override
     <span style="color:#800000; font-weight:bold; ">protected</span> Page createMainPage<span style="color:#808030; ">(</span>Request rqst<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
-        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">new</span> HelloWorldPage<span style="color:#808030; ">(</span>rqst<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">new</span> WcDemoPage<span style="color:#808030; ">(</span>rqst<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
     <span style="color:#800080; ">}</span>
 
     <span style="color:#808030; ">@</span>Override
@@ -139,7 +147,7 @@
 </pre>
 </div>
 <p>
-<p><strong>HelloWorldPage.java</strong><div class='java'>
+<p><strong>WcDemoPage.java</strong><div class='java'>
 <pre><span style="color:#800000; font-weight:bold; ">package</span><span style="color:#004a43; "> demo</span><span style="color:#800080; ">;</span>
 
 <span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">application</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Request</span><span style="color:#800080; ">;</span>
@@ -155,9 +163,9 @@
 /* ]]> */
 </script>&gt;</span><span style="color:#3f5fbf; "></span>
 <span style="color:#3f5fbf; ">&nbsp;*/</span>
-<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> HelloWorldPage <span style="color:#800000; font-weight:bold; ">extends</span> WcPage <span style="color:#800080; ">{</span>
+<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> WcDemoPage <span style="color:#800000; font-weight:bold; ">extends</span> WcPage <span style="color:#800080; ">{</span>
 
-    <span style="color:#800000; font-weight:bold; ">public</span> HelloWorldPage<span style="color:#808030; ">(</span>Request initData<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">public</span> WcDemoPage<span style="color:#808030; ">(</span>Request initData<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
         <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>initData<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
     <span style="color:#800080; ">}</span>
 
@@ -168,7 +176,7 @@
 
     <span style="color:#808030; ">@</span>Override
     <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getTitle<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
-        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"Hello World Page"</span><span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"WebChunks Example Page"</span><span style="color:#800080; ">;</span>
     <span style="color:#800080; ">}</span>
 
 <span style="color:#800080; ">}</span>
@@ -184,11 +192,11 @@
          <span style='color:#666616; '>xmlns</span><span style='color:#800080; '>:</span><span style='color:#074726; '>xsi</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#666616; '>http</span><span style='color:#800080; '>:</span><span style='color:#800000; font-weight:bold; '>//</span><span style='color:#5555dd; '>www.w3.org</span><span style='color:#40015a; '>/2001/XMLSchema-instance</span><span style='color:#0000e6; '>"</span>
          <span style='color:#666616; '>xsi</span><span style='color:#800080; '>:</span><span style='color:#074726; '>schemaLocation</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#666616; '>http</span><span style='color:#800080; '>:</span><span style='color:#800000; font-weight:bold; '>//</span><span style='color:#5555dd; '>java.sun.com</span><span style='color:#40015a; '>/xml/ns/javaee</span><span style='color:#0000e6; '> </span><span style='color:#666616; '>http</span><span style='color:#800080; '>:</span><span style='color:#800000; font-weight:bold; '>//</span><span style='color:#5555dd; '>java.sun.com</span><span style='color:#40015a; '>/xml/ns/javaee/web-app_3_0.xsd</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
     <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet</span><span style='color:#a65700; '>></span>
-        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>HelloWorldServlet<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>
-        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-class</span><span style='color:#a65700; '>></span>demo.HelloWorldServlet<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-class</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>WcDemoServlet<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-class</span><span style='color:#a65700; '>></span>demo.WcDemoServlet<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-class</span><span style='color:#a65700; '>></span>
     <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet</span><span style='color:#a65700; '>></span>
     <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-mapping</span><span style='color:#a65700; '>></span>
-        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>HelloWorldServlet<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>WcDemoServlet<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-name</span><span style='color:#a65700; '>></span>
         <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>url-pattern</span><span style='color:#a65700; '>></span>/*<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>url-pattern</span><span style='color:#a65700; '>></span>
     <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>servlet-mapping</span><span style='color:#a65700; '>></span>
     <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>session-config</span><span style='color:#a65700; '>></span>
@@ -203,10 +211,12 @@
 <p>Собираем, запускаем и смотрим на результат:
 <p><img class="left" src="../images/examples/1/app.png" class="image" alt="app"/>
 <p>
-<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="2"></a>Слушатели.</h2>
+<p>Для загрузки существующего Netbeans проекта, пожалуйста, перейдите по этой <a class="download" href="../files/examples/1/WcDemo.tar.gz">ссылке</a>.
+<p>
+<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="2"></a>Слушатели</h2>
 <p>В этом примере рассматривается работа со слушателями.
-<p>Слегка изменим код класса HelloWorldPage из предыдущего примера.
-<p><strong>HelloWorldPage.java</strong><div class='java'>
+<p>Слегка изменим код класса WcDemoPage из предыдущего примера.
+<p><strong>WcDemoPage.java</strong><div class='java'>
 <pre><span style="color:#800000; font-weight:bold; ">package</span><span style="color:#004a43; "> demo</span><span style="color:#800080; ">;</span>
 
 <span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">application</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Request</span><span style="color:#800080; ">;</span>
@@ -225,12 +235,12 @@
 /* ]]> */
 </script>&gt;</span><span style="color:#3f5fbf; "></span>
 <span style="color:#3f5fbf; ">&nbsp;*/</span>
-<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> HelloWorldPage <span style="color:#800000; font-weight:bold; ">extends</span> WcPage <span style="color:#800080; ">{</span>
+<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> WcDemoPage <span style="color:#800000; font-weight:bold; ">extends</span> WcPage <span style="color:#800080; ">{</span>
 
     <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">final</span> WcInput nameInput <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
     <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">final</span> WcLabel helloLabel <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> WcLabel<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
 
-    <span style="color:#800000; font-weight:bold; ">public</span> HelloWorldPage<span style="color:#808030; ">(</span>Request initData<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">public</span> WcDemoPage<span style="color:#808030; ">(</span>Request initData<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
         <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>initData<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
     <span style="color:#800080; ">}</span>
 
@@ -250,7 +260,7 @@
 
     <span style="color:#808030; ">@</span>Override
     <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getTitle<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
-        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"Hello World Page"</span><span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"WebChunks Example Page"</span><span style="color:#800080; ">;</span>
     <span style="color:#800080; ">}</span>
 
 <span style="color:#800080; ">}</span>
@@ -258,6 +268,60 @@
 </div>
 <p>Теперь текст надписи будет автоматически синхронизироваться с полем ввода:
 <p><img class="left" src="../images/examples/2/app.png" class="image" alt="app"/>
+<p>
+<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="3"></a>Модели</h2>
+<p>
+<p>В данном примере рассматриваются возможности применения моделей, пока в отрыве от реальных задач.
+<p>Изменим WcDemoPage следующим образом:
+<p>
+<p><strong>WcDemoPage.java</strong><div class='java'>
+<pre><span style="color:#800000; font-weight:bold; ">package</span><span style="color:#004a43; "> demo</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">application</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Request</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">component</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">ContainerMutable</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcInput</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcPage</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcPanel</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">model</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">StringModel</span><span style="color:#800080; ">;</span>
+
+<span style="color:#3f5fbf; ">/**</span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">@author</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">Petr Zalyautdinov (Заляутдинов Пётр) &lt;zalyautdinov.petr@gmail.com<script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
+/* ]]> */
+</script>&gt;</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;*/</span>
+<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> WcDemoPage <span style="color:#800000; font-weight:bold; ">extends</span> WcPage <span style="color:#800080; ">{</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> WcDemoPage<span style="color:#808030; ">(</span>Request initData<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>initData<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> init<span style="color:#808030; ">(</span>ContainerMutable cm<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        WcInput inputOriginal <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"input-original"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        StringModel modelOriginal <span style="color:#808030; ">=</span> inputOriginal<span style="color:#808030; ">.</span>getModel<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        addChild<span style="color:#808030; ">(</span>inputOriginal<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#808030; ">(</span><span style="color:#bb7977; ">int</span> i <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> i <span style="color:#808030; ">&lt;</span> <span style="color:#008c00; ">5</span><span style="color:#800080; ">;</span> i<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            WcPanel wcPanel <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> WcPanel<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            wcPanel<span style="color:#808030; ">.</span>addChild<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"input-copy-"</span><span style="color:#808030; ">+</span>i<span style="color:#808030; ">,</span> modelOriginal<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            addChild<span style="color:#808030; ">(</span>wcPanel<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+        inputOriginal<span style="color:#808030; ">.</span>setValue<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"Same text!"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getTitle<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"WebChunks Example Page"</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+<span style="color:#800080; ">}</span>
+</pre>
+</div>
+<p>
+<p>В примере создаются несколько полей текстового ввода, связанных с одной моделью. В результате изменения на форме любого поля текст в остальных полях становится таким же.
+<p><img class="left" src="../images/examples/3/app.png" class="image" alt="app"/>
 <p>
                     </div>
                 </div>
