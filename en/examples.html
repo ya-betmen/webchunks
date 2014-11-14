@@ -40,7 +40,7 @@
                     <div id="content">
                         <strong>Unfortunately this section of the site is under construction</strong>
 <p>
-<p><a class="anchor" name="contents"/><ol><li><a href="#1">Hello, World!</a></li><li><a href="#2">Listeners</a></li><li><a href="#3">Models</a></li></ol>
+<p><a class="anchor" name="contents"/><ol><li><a href="#1">Hello, World!</a></li><li><a href="#2">Listeners</a></li><li><a href="#3">Models</a></li><li><a href="#4">Useful models</a></li></ol>
 <p>
 <p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="1"></a>Hello, World!</h2>
 <p>Traditional "Hello, World" application. This is example of minimal WebChunks application.
@@ -280,10 +280,10 @@
 
 <span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">application</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Request</span><span style="color:#800080; ">;</span>
 <span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">component</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">ContainerMutable</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">model</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Model</span><span style="color:#800080; ">;</span>
 <span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcInput</span><span style="color:#800080; ">;</span>
 <span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcPage</span><span style="color:#800080; ">;</span>
 <span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcPanel</span><span style="color:#800080; ">;</span>
-<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">model</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">StringModel</span><span style="color:#800080; ">;</span>
 
 <span style="color:#3f5fbf; ">/**</span>
 <span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "></span>
@@ -302,7 +302,7 @@
     <span style="color:#808030; ">@</span>Override
     <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> init<span style="color:#808030; ">(</span>ContainerMutable cm<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
         WcInput inputOriginal <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"input-original"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
-        StringModel modelOriginal <span style="color:#808030; ">=</span> inputOriginal<span style="color:#808030; ">.</span>getModel<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        Model<span style="color:#808030; ">&lt;</span><span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">&gt;</span> modelOriginal <span style="color:#808030; ">=</span> inputOriginal<span style="color:#808030; ">.</span>getModel<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
         addChild<span style="color:#808030; ">(</span>inputOriginal<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
         <span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#808030; ">(</span><span style="color:#bb7977; ">int</span> i <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> i <span style="color:#808030; ">&lt;</span> <span style="color:#008c00; ">5</span><span style="color:#800080; ">;</span> i<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
             WcPanel wcPanel <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> WcPanel<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
@@ -323,6 +323,412 @@
 <p>
 <p>The example multiple text input fields associated with the one model. As a result of changes in text in any text field the text in other fields becomes the same.
 <p><img class="left" src="../images/examples/3/app.png" class="image" alt="app"/>
+<p>
+<p><h2><a class="to-contents" href="#contents">§</a><a class="anchor" name="4"></a>Useful models</h2>
+<p>This example discloses the possibility of using models in practice. Suppose you want to enter data about a person: name, height, weight. Moreover, you must have the opportunity to enter the growth both in meters and feet, and the weight in kilograms and pounds. Clearly, it makes no sense to keep two values for height and weight, so even if the data stored in the next structure.
+<p><div class='java'><pre><span style="color:#800000; font-weight:bold; ">class</span> Person <span style="color:#800080; ">{</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#bb7977; font-weight:bold; ">String</span> name<span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#bb7977; font-weight:bold; ">String</span> surname<span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> height<span style="color:#800080; ">;</span><span style="color:#696969; ">//, m.</span>
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> weight<span style="color:#800080; ">;</span><span style="color:#696969; ">//, kg.</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> Person<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">String</span> name<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> surname<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> height<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> weight<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>name <span style="color:#808030; ">=</span> name<span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>surname <span style="color:#808030; ">=</span> surname<span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>height <span style="color:#808030; ">=</span> height<span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>weight <span style="color:#808030; ">=</span> weight<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getName<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> name<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> setName<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">String</span> name<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>name <span style="color:#808030; ">=</span> name<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getSurname<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> surname<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> setSurname<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">String</span> surname<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>surname <span style="color:#808030; ">=</span> surname<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> getHeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> height<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> setHeight<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">Double</span> height<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>height <span style="color:#808030; ">=</span> height<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> getWeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> weight<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> setWeight<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">Double</span> weight<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>weight <span style="color:#808030; ">=</span> weight<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> toString<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"Person{"</span> <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">"name="</span> <span style="color:#808030; ">+</span> name <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">", surname="</span> <span style="color:#808030; ">+</span> surname <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">", height="</span> <span style="color:#808030; ">+</span> height <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">"m, weight="</span> <span style="color:#808030; ">+</span> weight <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">"kg}"</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+<span style="color:#800080; ">}</span>
+</pre>
+</div>
+<p>Height and weight are stored in metric units. Implement the data transfer from the form into an object of type Person are different ways you can use Listeners, but the more complicated the relationship between the values will be the more difficult to write and maintain the code will be, you can create custom Components, transferring data directly into an object Peson, but it will require a new component for each field, and you can use the class of models for transparent synchronization values. The latter option will be considered further.
+<p>Firstly you need a special class of models, which does not store the information in a separate field and uses an object of type Person.
+<p><div class='java'><pre><span style="color:#800000; font-weight:bold; ">abstract</span> <span style="color:#800000; font-weight:bold; ">class</span> PersonStringModel <span style="color:#800000; font-weight:bold; ">extends</span> AbstractModel&lt;String&gt; <span style="color:#800080; ">{</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">final</span> Person person<span style="color:#800080; ">;</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> PersonStringModel<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>person <span style="color:#808030; ">=</span> person<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">Class</span><span style="color:#808030; ">&lt;</span><span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">&gt;</span> getValueClass<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">.</span>class<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">protected</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getModelValue<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> getPersonValue<span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">protected</span> <span style="color:#bb7977; ">void</span> setModelValue<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">String</span> t<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        setPersonValue<span style="color:#808030; ">(</span>person<span style="color:#808030; ">,</span> t<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">abstract</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+    <span style="color:#800000; font-weight:bold; ">abstract</span> <span style="color:#bb7977; ">void</span> setPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> value<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800080; ">}</span>
+</pre>
+</div>
+<p>This is an abstract class which proxies access to data stored in the model. Because text field does not have restrictions on the input data (the creation of such a component would be another example), you need to think about converting string to a number of possible errors and processing, for this we use a simple function that converts a string to a number, but if it is not succeeded return the default value.
+<p><div class='java'><pre><span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">static</span> Double parseDouble(String s, Double defaultValue) <span style="color:#800080; ">{</span>
+    <span style="color:#bb7977; font-weight:bold; ">Double</span> d <span style="color:#808030; ">=</span> defaultValue<span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">try</span> <span style="color:#800080; ">{</span>
+        d <span style="color:#808030; ">=</span> <span style="color:#bb7977; font-weight:bold; ">Double</span><span style="color:#808030; ">.</span>parseDouble<span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span> <span style="color:#800000; font-weight:bold; ">finally</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> d<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+<span style="color:#800080; ">}</span>
+</pre>
+</div>
+<p>For all the fields that do not require the creation of models transformations trivial and similar to the following code:
+<p><div class='java'><pre>PersonStringModel nameModel = new PersonStringModel(person) <span style="color:#800080; ">{</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#bb7977; font-weight:bold; ">String</span> getPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> person<span style="color:#808030; ">.</span>getName<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#bb7977; ">void</span> setPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> value<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        person<span style="color:#808030; ">.</span>setName<span style="color:#808030; ">(</span>value<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+<span style="color:#800080; ">}</span><span style="color:#808030; ">;</span>
+</pre>
+</div>
+<p>Models for fields that require a little more complicated transformations such growth in feet:
+<p><div class='java'><pre>PersonStringModel heightInFtModel = new PersonStringModel(person) <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">static</span> <span style="color:#800000; font-weight:bold; ">final</span> <span style="color:#bb7977; ">double</span> coeff_ft <span style="color:#808030; ">=</span> <span style="color:#008000; ">0.3048</span><span style="color:#800080; ">;</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#bb7977; font-weight:bold; ">String</span> getPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">.</span>valueOf<span style="color:#808030; ">(</span>person<span style="color:#808030; ">.</span>getHeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">*</span> coeff_ft<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#bb7977; ">void</span> setPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> value<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        person<span style="color:#808030; ">.</span>setHeight<span style="color:#808030; ">(</span>parseDouble<span style="color:#808030; ">(</span>value<span style="color:#808030; ">,</span> person<span style="color:#808030; ">.</span>getHeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">*</span> coeff_ft<span style="color:#808030; ">)</span> <span style="color:#808030; ">/</span> coeff_ft<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+<span style="color:#800080; ">}</span><span style="color:#808030; ">;</span>
+</pre>
+</div>
+<p>We see that in this code, the conversion factor is taken into account, as well as through the use of functions parseDouble ignored the invalid value. It remains to use these patterns in creating the input fields and display them on the form.
+<p><strong>WcDemoPage.java</strong><div class='java'>
+<pre><span style="color:#800000; font-weight:bold; ">package</span><span style="color:#004a43; "> demo</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">application</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">Request</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">component</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">ContainerMutable</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">base</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">model</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">AbstractModel</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcGrid</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcInput</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcLabel</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span><span style="color:#004a43; "> org</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">webchunks</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">simpleui</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">html</span><span style="color:#808030; ">.</span><span style="color:#004a43; ">WcPage</span><span style="color:#800080; ">;</span>
+
+<span style="color:#3f5fbf; ">/**</span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;</span><span style="color:#7f9fbf; font-weight:bold; ">*</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">@author</span><span style="color:#3f5fbf; "> </span><span style="color:#7f9fbf; font-weight:bold; ">Petr Zalyautdinov (Заляутдинов Пётр) &lt;zalyautdinov.petr@gmail.com<script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
+/* ]]> */
+</script>&gt;</span><span style="color:#3f5fbf; "></span>
+<span style="color:#3f5fbf; ">&nbsp;*/</span>
+<span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">class</span> WcDemoPage <span style="color:#800000; font-weight:bold; ">extends</span> WcPage <span style="color:#800080; ">{</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">final</span> Person person <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> Person<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"John"</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">"Doe"</span><span style="color:#808030; ">,</span> <span style="color:#008000; ">1.8</span><span style="color:#808030; ">,</span> <span style="color:#008000; ">80.0</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> WcDemoPage<span style="color:#808030; ">(</span>Request initData<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>initData<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> init<span style="color:#808030; ">(</span>ContainerMutable cm<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        PersonNameStringModel nameModel <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> PersonNameStringModel<span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        PersonSurnameStringModel surnameModel <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> PersonSurnameStringModel<span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        PersonHeightStringModel heightInMModel <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> PersonHeightStringModel<span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        PersonHeightFtStringModel heightInFtModel <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> PersonHeightFtStringModel<span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        PersonWeightStringModel weightInKgModel <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> PersonWeightStringModel<span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        PersonStringModel weightInLbModel <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> PersonWeightLbStringModel<span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+        WcGrid grid <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> WcGrid<span style="color:#808030; ">(</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+
+            <span style="color:#808030; ">@</span>Override
+            <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">boolean</span> isValid<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">false</span><span style="color:#800080; ">;</span>
+            <span style="color:#800080; ">}</span>
+
+        <span style="color:#800080; ">}</span><span style="color:#800080; ">;</span>
+        grid<span style="color:#808030; ">.</span>addChildren<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">new</span> WcLabel<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"name"</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">"Name: "</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span>nameModel<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        grid<span style="color:#808030; ">.</span>addChildren<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">new</span> WcLabel<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"surname"</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">"Surame: "</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span>surnameModel<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        grid<span style="color:#808030; ">.</span>addChildren<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">new</span> WcLabel<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"height-m"</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">"Height, m: "</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span>heightInMModel<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        grid<span style="color:#808030; ">.</span>addChildren<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">new</span> WcLabel<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"height-ft"</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">"Height, ft: "</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span>heightInFtModel<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        grid<span style="color:#808030; ">.</span>addChildren<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">new</span> WcLabel<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"weight-kg"</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">"Weight, kg: "</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span>weightInKgModel<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        grid<span style="color:#808030; ">.</span>addChildren<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">new</span> WcLabel<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"weight-lb"</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">"Weight, lb: "</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">new</span> WcInput<span style="color:#808030; ">(</span>weightInLbModel<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+        addChild<span style="color:#808030; ">(</span>grid<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        addChild<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">new</span> WcLabel<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+
+            <span style="color:#808030; ">@</span>Override
+            <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getText<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                <span style="color:#800000; font-weight:bold; ">return</span> person<span style="color:#808030; ">.</span>toString<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            <span style="color:#800080; ">}</span>
+
+            <span style="color:#808030; ">@</span>Override
+            <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">boolean</span> isValid<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; font-weight:bold; ">false</span><span style="color:#800080; ">;</span>
+            <span style="color:#800080; ">}</span>
+
+        <span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#800000; font-weight:bold; ">static</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> parseDouble<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">String</span> s<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> defaultValue<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#bb7977; font-weight:bold; ">Double</span> d <span style="color:#808030; ">=</span> defaultValue<span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">try</span> <span style="color:#800080; ">{</span>
+            d <span style="color:#808030; ">=</span> <span style="color:#bb7977; font-weight:bold; ">Double</span><span style="color:#808030; ">.</span>parseDouble<span style="color:#808030; ">(</span>s<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span> <span style="color:#800000; font-weight:bold; ">finally</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> d<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#808030; ">@</span>Override
+    <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getTitle<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"WebChunks Example Page"</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">abstract</span> <span style="color:#800000; font-weight:bold; ">class</span> PersonStringModel <span style="color:#800000; font-weight:bold; ">extends</span> AbstractModel<span style="color:#808030; ">&lt;</span><span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">&gt;</span> <span style="color:#800080; ">{</span>
+
+        <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">final</span> Person person<span style="color:#800080; ">;</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> PersonStringModel<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>person <span style="color:#808030; ">=</span> person<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">Class</span><span style="color:#808030; ">&lt;</span><span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">&gt;</span> getValueClass<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">.</span>class<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#800000; font-weight:bold; ">protected</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getModelValue<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> getPersonValue<span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#800000; font-weight:bold; ">protected</span> <span style="color:#bb7977; ">void</span> setModelValue<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">String</span> t<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            setPersonValue<span style="color:#808030; ">(</span>person<span style="color:#808030; ">,</span> t<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">abstract</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#800000; font-weight:bold; ">abstract</span> <span style="color:#bb7977; ">void</span> setPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> value<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">class</span> Person <span style="color:#800080; ">{</span>
+
+        <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#bb7977; font-weight:bold; ">String</span> name<span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#bb7977; font-weight:bold; ">String</span> surname<span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> height<span style="color:#800080; ">;</span><span style="color:#696969; ">//, m.</span>
+        <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> weight<span style="color:#800080; ">;</span><span style="color:#696969; ">//, kg.</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> Person<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">String</span> name<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> surname<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> height<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> weight<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>name <span style="color:#808030; ">=</span> name<span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>surname <span style="color:#808030; ">=</span> surname<span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>height <span style="color:#808030; ">=</span> height<span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>weight <span style="color:#808030; ">=</span> weight<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getName<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> name<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> setName<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">String</span> name<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>name <span style="color:#808030; ">=</span> name<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> getSurname<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> surname<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> setSurname<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">String</span> surname<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>surname <span style="color:#808030; ">=</span> surname<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> getHeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> height<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> setHeight<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">Double</span> height<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>height <span style="color:#808030; ">=</span> height<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">Double</span> getWeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> weight<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; ">void</span> setWeight<span style="color:#808030; ">(</span><span style="color:#bb7977; font-weight:bold; ">Double</span> weight<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>weight <span style="color:#808030; ">=</span> weight<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#800000; font-weight:bold; ">public</span> <span style="color:#bb7977; font-weight:bold; ">String</span> toString<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0000e6; ">"Person{"</span> <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">"name="</span> <span style="color:#808030; ">+</span> name <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">", surname="</span> <span style="color:#808030; ">+</span> surname <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">", height="</span> <span style="color:#808030; ">+</span> height <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">"m, weight="</span> <span style="color:#808030; ">+</span> weight <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">"kg}"</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">class</span> PersonNameStringModel <span style="color:#800000; font-weight:bold; ">extends</span> PersonStringModel <span style="color:#800080; ">{</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> PersonNameStringModel<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; font-weight:bold; ">String</span> getPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> person<span style="color:#808030; ">.</span>getName<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; ">void</span> setPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> value<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            person<span style="color:#808030; ">.</span>setName<span style="color:#808030; ">(</span>value<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">class</span> PersonSurnameStringModel <span style="color:#800000; font-weight:bold; ">extends</span> PersonStringModel <span style="color:#800080; ">{</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> PersonSurnameStringModel<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; font-weight:bold; ">String</span> getPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> person<span style="color:#808030; ">.</span>getSurname<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; ">void</span> setPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> value<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            person<span style="color:#808030; ">.</span>setSurname<span style="color:#808030; ">(</span>value<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">class</span> PersonHeightStringModel <span style="color:#800000; font-weight:bold; ">extends</span> PersonStringModel <span style="color:#800080; ">{</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> PersonHeightStringModel<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; font-weight:bold; ">String</span> getPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">.</span>valueOf<span style="color:#808030; ">(</span>person<span style="color:#808030; ">.</span>getHeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; ">void</span> setPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> value<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            person<span style="color:#808030; ">.</span>setHeight<span style="color:#808030; ">(</span>parseDouble<span style="color:#808030; ">(</span>value<span style="color:#808030; ">,</span> person<span style="color:#808030; ">.</span>getHeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">class</span> PersonHeightFtStringModel <span style="color:#800000; font-weight:bold; ">extends</span> PersonStringModel <span style="color:#800080; ">{</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> PersonHeightFtStringModel<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+        <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">static</span> <span style="color:#800000; font-weight:bold; ">final</span> <span style="color:#bb7977; ">double</span> coeff_ft <span style="color:#808030; ">=</span> <span style="color:#008000; ">0.3048</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; font-weight:bold; ">String</span> getPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">.</span>valueOf<span style="color:#808030; ">(</span>person<span style="color:#808030; ">.</span>getHeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">*</span> coeff_ft<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; ">void</span> setPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> value<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            person<span style="color:#808030; ">.</span>setHeight<span style="color:#808030; ">(</span>parseDouble<span style="color:#808030; ">(</span>value<span style="color:#808030; ">,</span> person<span style="color:#808030; ">.</span>getHeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">*</span> coeff_ft<span style="color:#808030; ">)</span> <span style="color:#808030; ">/</span> coeff_ft<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">class</span> PersonWeightStringModel <span style="color:#800000; font-weight:bold; ">extends</span> PersonStringModel <span style="color:#800080; ">{</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> PersonWeightStringModel<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; font-weight:bold; ">String</span> getPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">.</span>valueOf<span style="color:#808030; ">(</span>person<span style="color:#808030; ">.</span>getWeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; ">void</span> setPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> value<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            person<span style="color:#808030; ">.</span>setWeight<span style="color:#808030; ">(</span>parseDouble<span style="color:#808030; ">(</span>value<span style="color:#808030; ">,</span> person<span style="color:#808030; ">.</span>getWeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#800080; ">}</span>
+
+    <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">class</span> PersonWeightLbStringModel <span style="color:#800000; font-weight:bold; ">extends</span> PersonStringModel <span style="color:#800080; ">{</span>
+
+        <span style="color:#800000; font-weight:bold; ">public</span> PersonWeightLbStringModel<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">super</span><span style="color:#808030; ">(</span>person<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+        <span style="color:#800000; font-weight:bold; ">private</span> <span style="color:#800000; font-weight:bold; ">static</span> <span style="color:#800000; font-weight:bold; ">final</span> <span style="color:#bb7977; ">double</span> coeff_lb <span style="color:#808030; ">=</span> <span style="color:#008000; ">0.454</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; font-weight:bold; ">String</span> getPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#bb7977; font-weight:bold; ">String</span><span style="color:#808030; ">.</span>valueOf<span style="color:#808030; ">(</span>person<span style="color:#808030; ">.</span>getWeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">*</span> coeff_lb<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">@</span>Override
+        <span style="color:#bb7977; ">void</span> setPersonValue<span style="color:#808030; ">(</span>Person person<span style="color:#808030; ">,</span> <span style="color:#bb7977; font-weight:bold; ">String</span> value<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            person<span style="color:#808030; ">.</span>setWeight<span style="color:#808030; ">(</span>parseDouble<span style="color:#808030; ">(</span>value<span style="color:#808030; ">,</span> person<span style="color:#808030; ">.</span>getWeight<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">*</span> coeff_lb<span style="color:#808030; ">)</span> <span style="color:#808030; ">/</span> coeff_lb<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#800080; ">}</span>
+
+<span style="color:#800080; ">}</span>
+</pre>
+</div>
+<p>Thus the data in an object of type Person is always relevant, because values are stored only in it, but when displaying or entering their transparent conversion occurs. These models can be easily re-use to bind form fields to an object of type Person.
+<p><img class="left" src="../images/examples/4/app.png" class="image" alt="app"/>
 <p>
                     </div>
                 </div>
