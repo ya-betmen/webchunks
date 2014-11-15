@@ -316,13 +316,13 @@ a:hover {
 
 a.external:before{
     content: url(../images/link-external.png);
-    margin-right: 3px;classes
+    margin-right: 3px;
 }
 
 
 a.download:before{
     content: url(../images/link-download.png);
-    margin-right: 3px;classes
+    margin-right: 3px;
 }
 
 div.xml, div.java, div.pre {
